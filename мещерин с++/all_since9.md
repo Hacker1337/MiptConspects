@@ -97,6 +97,23 @@ int main() {
     return 0;
 }
 ```
+На счет этого есть сомнения, но так точно работает:
+```c++
+#include<iostream>
+using namespace std;
+int f(int Head) {
+    cout << Head;
+    return Head;
+}
+template<typename ... Args>
+int f(int Head, Args ... Tail) {
+    return f(Tail ...);
+}
+
+int main(){
+    f(3, 54, 5643, 2345 ,546, 456, 4356);
+}
+```
 б) tuple - кортеж, обобщение пары
 ```c
 tuple<int, double, std::string>
